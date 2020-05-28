@@ -14,31 +14,27 @@
             
             <h2>Nom</h2>
             <h:form>
+            	
             	<p>Pseudo</p>
-                <h:inputText value="#{commentsListBean.newComment.autorOfComment}" required="true">
-					<f:validateRequired/>
-					requiredMessage="Un joli nom est nécessaire pour pouvoir poster un message. 😉"
-				</h:inputText>
+                <h:inputText id="name" value="#{registerUserBean.name}"
+                	required="true"
+					requiredMessage="Un joli nom est nécessaire pour pouvoir s'inscrire. 😉"
+				/>
                 
-				<p>Message</p>
-				<h:inputText id="messageInput" value="#{commentsListBean.newComment.comment}" required="true" >
-					<f:validateRequired/>
-					requiredMessage="Il te faut un message pour poster un message. 😂"
-					<f:validateLength minimum="5"/>
+				<p>Adresse email</p>
+				<h:inputText id="email" type="email" value="#{registerUserBean.email}"
+					required="true"
+					requiredMessage="Une adresse mail est nécessaire pour que l'on puisse te contacter. 😀"
+					minimum="5"
 					validatorMessage="Encore un effort! Au moins 5 caractères! 🙃"
-				</h:inputText>
+				/>
 				
-                <h:commandButton value="Poster" actionListener="#{commentsListBean.postCommentAction}" />
-                
-                <!--- <a href="summary.xhtml">Voir le contenu du panier</a> -->
+				<h:messages styleClass="errorBlock" />
+
+                <h:commandButton value="S'inscrire" action="#{registerUserBean.submitAction}" />
+
             </h:form>
             
-            <h2>Tous les messages</h2>
-            <ul>
-	            <c:forEach var="comment" items="#{commentsListBean.commentsList}">
-	            	<li>#{comment.autorOfComment}: #{comment.comment}</li>
-	        	</c:forEach>
-            </ul>
         
         </body>
     </f:view>

@@ -1,28 +1,27 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 
-import model.Comment;
+import model.User;
 
 
 @Named
 @SessionScoped
-public class UserBean implements Serializable {
+public class RegisterUserBean implements Serializable {
 
+	private static final long serialVersionUID = 1554960432393184460L;
+	
 	private String name;
 	private String email;
-	private String password;
 	
-	public UserBean() {
-		name = "";
-		email = "";
-		password = "";
+	public RegisterUserBean() {
+		name = "1";
+		email = "2";
+		//password = "";
 	}
 
 	public String getName() {
@@ -40,14 +39,10 @@ public class UserBean implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	
-	
+	public String submitAction(ActionEvent event) {
+		email = email + "_ok";
+    	System.out.println("submitAction()");
+    	return "succes";
+    }
 }
