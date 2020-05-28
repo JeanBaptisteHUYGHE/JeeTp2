@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" >
+    <f:view>
+        <head>
+            <title>Inscription</title>
+            <link rel="stylesheet" type="text/css" href="styles.css" />
+        </head>
+        <body>
+            <h1>Inscription</h1>
+            
+            <h1>TODO</h1>
+            
+            <h2>Nom</h2>
+            <h:form>
+            	<p>Pseudo</p>
+                <h:inputText value="#{commentsListBean.newComment.autorOfComment}" required="true">
+					<f:validateRequired/>
+					requiredMessage="Un joli nom est nécessaire pour pouvoir poster un message. 😉"
+				</h:inputText>
+                
+				<p>Message</p>
+				<h:inputText id="messageInput" value="#{commentsListBean.newComment.comment}" required="true" >
+					<f:validateRequired/>
+					requiredMessage="Il te faut un message pour poster un message. 😂"
+					<f:validateLength minimum="5"/>
+					validatorMessage="Encore un effort! Au moins 5 caractères! 🙃"
+				</h:inputText>
+				
+                <h:commandButton value="Poster" actionListener="#{commentsListBean.postCommentAction}" />
+                
+                <!--- <a href="summary.xhtml">Voir le contenu du panier</a> -->
+            </h:form>
+            
+            <h2>Tous les messages</h2>
+            <ul>
+	            <c:forEach var="comment" items="#{commentsListBean.commentsList}">
+	            	<li>#{comment.autorOfComment}: #{comment.comment}</li>
+	        	</c:forEach>
+            </ul>
+        
+        </body>
+    </f:view>
+</html>
