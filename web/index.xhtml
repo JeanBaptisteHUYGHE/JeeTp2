@@ -6,6 +6,19 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
    <f:view>
-      <h:outputLabel value="Hello, world"/>
+      <head>
+         <title>Connexion</title>
+      </head>
+      <body>
+         <h:form>
+            Login:
+            <h:inputText id="login" value="#{loginBean.login}" />
+            <br/>
+            Password:
+            <h:inputText id="password" value="#{loginBean.password}" />
+            <br/>
+            <h:commandButton action="#{loginBean.returnAction}" value="Connect" />
+         </h:form>
+      </body>
    </f:view>
 </html>

@@ -1,24 +1,21 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "comment")
 public class Comment {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    String autorOfComment;
-    String comment;
-    int like = 0;
+    private String autorOfComment;
+    private String comment;
+    private int nbLike = 0;
 
     public Comment(){
-        autorOfComment = null;
-        comment = null;
+        autorOfComment = "";
+        comment = "";
     }
 
     public Comment(String autorOfComment, String comment) {
@@ -42,15 +39,15 @@ public class Comment {
         this.comment = comment;
     }
 
-    public int getLike() {
-        return like;
+    public int getNbLike() {
+        return nbLike;
     }
 
-    public void setLike(int like) {
-        this.like = like;
+    public void setNbLike(int nbLike) {
+        this.nbLike = nbLike;
     }
 
     public void addLike(){
-        like++;
+        nbLike++;
     }
 }
