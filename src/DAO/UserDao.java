@@ -16,7 +16,7 @@ import java.util.List;
 public class UserDao implements Serializable {
     private static final long serialVersionUID = -25787861285945L;
 
-    //@Inject
+    @Inject
     private EntityManagerDao entityManagerDao;
 
     public void saveUser(User user){
@@ -26,7 +26,9 @@ public class UserDao implements Serializable {
     }
 
     public void update(User user){
+        entityManagerDao.getEntityManager().getTransaction().begin();
         entityManagerDao.getEntityManager().persist(user);
+        entityManagerDao.getEntityManager().getTransaction().commit();
     }
 
     public List<User> getUsers(){
@@ -35,8 +37,6 @@ public class UserDao implements Serializable {
         return queryLocation.getResultList();
     }
 
-    public UserDao(EntityManagerDao entityManagerDao){
-        System.out.println("ffffffffffffffffffffffffffffffffffffffffff");
-        this.entityManagerDao = entityManagerDao;
+    public UserDao(){
     }
 }

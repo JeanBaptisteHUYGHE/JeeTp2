@@ -18,17 +18,24 @@ class CommentDao implements Serializable {
     EntityManagerDao entityManagerDao;
 
     public void saveComment(Comment comment){
+        entityManagerDao.getEntityManager().getTransaction().begin();
         entityManagerDao.getEntityManager().persist(comment);
+        entityManagerDao.getEntityManager().getTransaction().commit();
     }
 
     public void update(Comment comment){
+        entityManagerDao.getEntityManager().getTransaction().begin();
         entityManagerDao.getEntityManager().persist(comment);
-        entityManagerDao.getEntityManager().persist(comment);
+        entityManagerDao.getEntityManager().getTransaction().commit();
     }
 
     public List<Comment> getComments(){
         TypedQuery<Comment> queryLocation = entityManagerDao.getEntityManager().createQuery(
                 "FROM comment",Comment.class);
         return queryLocation.getResultList();
+    }
+
+    public CommentDao(){
+
     }
 }

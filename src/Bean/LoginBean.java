@@ -18,8 +18,7 @@ public class LoginBean implements Serializable {
     private String password = "pass";
 
     @Inject
-    //private UserDao userDao;
-    private EntityManagerDao entityManagerDao;
+    private UserDao userDao;
 
     public String getLogin() {
         return login;
@@ -43,7 +42,7 @@ public class LoginBean implements Serializable {
         user.setEmail("toto@to.fr");
         user.setMotDePasse(password);
         user.setNom(login);
-        entityManagerDao.getUserDao().saveUser(user);
+        userDao.saveUser(user);
         return password.equals( "response.xhtml" ) ? "" : " login.xhtml";
     }
 }
