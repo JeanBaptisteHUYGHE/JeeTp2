@@ -13,20 +13,22 @@
             <h2>Nouveau message</h2>
             <h:form>
             	<p>Pseudo</p>
-                <h:inputText value="#{commentsListBean.newComment.autorOfComment}" required="true">
-					<f:validateRequired/>
+                <h:inputText value="#{commentsListBean.newComment.autorOfComment}"
+                	required="true">
 					requiredMessage="Un joli nom est nécessaire pour pouvoir poster un message. 😉"
 				</h:inputText>
                 
 				<p>Message</p>
-				<h:inputText id="messageInput" value="#{commentsListBean.newComment.comment}" required="true" >
-					<f:validateRequired/>
+				<h:inputText id="messageInput" value="#{commentsListBean.newComment.comment}"
+					required="true"
 					requiredMessage="Il te faut un message pour poster un message. 😂"
-					<f:validateLength minimum="5"/>
+					minimum="5"
 					validatorMessage="Encore un effort! Au moins 5 caractères! 🙃"
-				</h:inputText>
+				/>
 				
-                <h:commandButton value="Poster" actionListener="#{commentsListBean.postCommentAction}" />
+				<h:messages styleClass="errorBlock" />
+				
+                <h:commandButton value="Poster" action="#{commentsListBean.postCommentAction}" />
                 
                 <!--- <a href="summary.xhtml">Voir le contenu du panier</a> -->
             </h:form>
