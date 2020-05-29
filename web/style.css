@@ -1,0 +1,94 @@
+
+:root{
+  --palette-1: #FBF5EF;
+  --palette-2: #F2D3AB;
+  --palette-3: #C69FA5;
+  --palette-4: #8B6D9C;
+  --palette-5: #494D7E;
+  --palette-6: #272744;
+}
+
+body {
+  background-color: var(--palette-6);
+}
+.nav_qubio nav{
+  margin: 0 10% 0 10%;
+  background-image: linear-gradient(to left,transparent,#C69FA5,#C69FA5,#C69FA5,transparent);
+}
+.nav_qubio ul{
+  margin: 0 40% 0 40%;
+}
+.nav_qubio a{
+  color: #272744;
+}
+img {
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+h1 {
+  text-align: center;
+}
+h1 img{
+  width: 500px;
+}
+
+h2{
+  text-align: center;
+  color: #C69FA5;
+}
+hr{
+  height: 5px;
+  border: 0;
+  width: 80%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #8B6D9C, rgba(0, 0, 0, 0));
+}
+.hr_title{
+  margin: 0 auto 0 auto;
+}
+.div_demo{
+  text-align: center;
+  height: 300px;
+  margin: 0;
+  mask-image: linear-gradient(transparent, rgba(0, 0, 0, 1.0),rgba(0, 0, 0, 1.0),rgba(0, 0, 0, 1.0), transparent);
+}
+.div_demo img{
+  height: 100%;
+
+
+}
+.div_demo_right{
+  mask-image: linear-gradient(to left,transparent,transparent, rgba(0, 0, 0, 1.0));
+}
+.div_demo_left{
+  mask-image: linear-gradient(to right,transparent,transparent, rgba(0, 0, 0, 1.0));
+}
+.description{
+  margin: 0 26% 0 26%;
+  text-align: justify;
+}
+.description span{
+  color: #F2D3AB;
+}
+.equipe{
+  margin: 0 26% 0 26%;
+}
+.equipe img{
+  width: 64px;
+}
+.equipe span{
+  color: #C69FA5;
+  font-size: x-large;
+}
+.card{
+  background-color: #F2D3AB;
+  color: #272744;
+}
+.com{
+  color: #494D7E;
+}
+
+.sub{
+  background-color: #F2D3AB;
+  color: #272744;
+}

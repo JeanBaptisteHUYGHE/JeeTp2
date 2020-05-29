@@ -10,7 +10,6 @@ public class User {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long      id;
     private String    email;
-    private String    motDePasse;
     private String    nom;
 
     public Long getId() {
@@ -29,14 +28,6 @@ public class User {
         return email;
     }
 
-    public void setMotDePasse( String motDePasse ) {
-        this.motDePasse = motDePasse;
-    }
-
-    public String getMotDePasse() {
-        return motDePasse;
-    }
-
     public void setNom( String nom ) {
         this.nom = nom;
     }
@@ -47,6 +38,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "Utilisateur [id=" + id + ", email=" + email + ", motDePasse=" + motDePasse + ", nom=" + nom  + "]";
+        return "Utilisateur [id=" + id + ", email=" + email + ", motDePasse=" + ", nom=" + nom  + "]";
     }
 }

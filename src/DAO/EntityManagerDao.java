@@ -10,9 +10,8 @@ import java.io.Serializable;
 public class EntityManagerDao implements Serializable {
     private static final long serialVersionUID = -25786612485945L;
 
-    EntityManagerFactory entityManagerFactory = null;
-
-    EntityManager entityManager;
+    private static EntityManagerFactory entityManagerFactory = null;
+    private static EntityManager entityManager = null;
 
     public UserDao getUserDao() {
         return userDao;
@@ -25,7 +24,11 @@ public class EntityManagerDao implements Serializable {
         entityManager = entityManagerFactory.createEntityManager();
     }
 
-    public EntityManager getEntityManager() {
+    public static EntityManager getEntityManager() {
+        if (entityManager == null){
+            entityManagerFactory = Persistence.createEntityManagerFactory("qubiowebsite");
+            entityManager = entityManagerFactory.createEntityManager();
+        }
         return entityManager;
     }
 }

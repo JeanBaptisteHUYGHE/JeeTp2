@@ -1,10 +1,12 @@
 package model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "comment")
-public class Comment {
+public class Comment implements Serializable {
+    private static final long serialVersionUID = 2050885057741919572L;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

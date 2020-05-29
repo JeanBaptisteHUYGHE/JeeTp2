@@ -1,0 +1,110 @@
+<html lang="en" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <!-- Qubio CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Qubio</title>
+</head>
+<body>
+<h1>
+    <img src="img/sprites/ui/buttons/button5.png"/>
+</h1>
+<hr class="hr_title"/>
+<div class="nav_qubio">
+    <nav class="navbar navbar-expand-lg nav_qubio">
+        <div class="collapse navbar-collapse nav_qubio" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <h:link class="nav-link" value = "Qubio" outcome = "index.xhtml" />
+                </li>
+                <li class="nav-item">
+                    <h:link class="nav-link" value = "Commentaires" outcome = "visitorBook.xhtml" />
+                </li>
+                <li class="nav-item">
+                    <h:link class="nav-link" value = "Nous rejoindre" outcome = "nousrejoindre.xhtml" />
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<hr class="hr_title"/>
+<div class="div_demo">
+    <img src="img/demo_left.png" class="div_demo_left"/><img src="img/demo.png"/><img src="img/demo_right.png" class="div_demo_right"/>
+</div>
+<hr/>
+<h2>Commentaires</h2>
+<div class="container">
+    <c:forEach var="comment" items="#{CommentDao.getComments()}">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-1">
+                        <h:commandButton class="btn btn-success btn-block"
+                                         action="#{commentsListBean.likeComment(comment)}"
+                                         value="+#{comment.nbLike}"/>
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            <a class="float-left"><strong>#{comment.autorOfComment}</strong></a>
+                            <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                            <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                            <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                            <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                        </p>
+                        <div class="clearfix"></div>
+                        <p class="com">#{comment.comment}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+    </c:forEach>
+</div>
+<hr/>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+
+            <h:form>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Nom</label>
+                    <h:inputText type="email" class="form-control" id="exampleFormControlInput1" placeholder="Chivers"
+                                 value="#{commentsListBean.newCommentAuthor}"
+                                 required="true">
+                        requiredMessage="Un joli nom est nécessaire pour pouvoir poster un message. 😉"
+                    </h:inputText>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Ton commentaire</label>
+                    <h:inputTextarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                     value="#{commentsListBean.newComment}"
+                                     required="true"
+                                     requiredMessage="Il te faut un message pour poster un message. 😂"
+                                     minimum="5"
+                                     validatorMessage="Encore un effort! Au moins 5 caractères! 🙃"
+                    />
+
+                    <h:messages styleClass="errorBlock" />
+
+                </div>
+                <div class="form-group">
+                    <h:commandButton class="btn btn-success btn-block"
+                                     value="Envoyer" action="#{commentsListBean.postCommentAction}" />
+                </div>
+            </h:form>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

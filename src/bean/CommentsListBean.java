@@ -4,40 +4,47 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ActionEvent;
+import javax.inject.Inject;
 import javax.inject.Named;
 
+import DAO.CommentDao;
 import model.Comment;
 
 
-@Named
-@SessionScoped
+@Named /*("CommentsListBean")*/
+@ApplicationScoped
 public class CommentsListBean implements Serializable {
-
 	private static final long serialVersionUID = 2050885057741919572L;
 	
-	private Comment newComment;
+	private String newComment = "";
+	private String newCommentAuthor = "";
 	private List<Comment> commentsList;
 
-    public CommentsListBean(){
-    	System.out.println("CommentsListBean()");
-    	newComment = new Comment("test", "test");
-    	commentsList = new ArrayList<Comment>();
-    	commentsList.add(new Comment("Jb", "C'est HONTEUUUUUX !!"));
-    	commentsList.add(new Comment("Ahlam", "Mais pourquoi faire ?"));
-    	commentsList.add(new Comment("Théo", "Je vais demander à Mei Chan"));
-    	commentsList.add(new Comment("Florian", "Connaissez vous le jeu du Sirop ?"));
-    	commentsList.add(new Comment("Oscar", "Ah ah ah ! Mais c'était sur en fait !"));
-    }
+	@Inject
+	CommentDao commentDao;
 
-	public Comment getNewComment() {
+	public String getNewComment() {
 		return newComment;
 	}
 
-	public void setNewComment(Comment newComment) {
+	public void setNewComment(String newComment) {
 		this.newComment = newComment;
 	}
+
+	public String getNewCommentAuthor() {
+		return newCommentAuthor;
+	}
+
+	public void setNewCommentAuthor(String newCommentAuthor) {
+		this.newCommentAuthor = newCommentAuthor;
+	}
+
+
+    public CommentsListBean(){
+    }
 
 	public List<Comment> getCommentsList() {
 		return commentsList;
@@ -47,8 +54,16 @@ public class CommentsListBean implements Serializable {
 		this.commentsList = commentsList;
 	}
 
-    public String postCommentAction(ActionEvent event) {
-    	System.out.println("CommentsListBean()");
+    public String postCommentAction() {
+		Comment theNewComment = new Comment(newCommentAuthor,newComment);
+		commentDao.saveComment(theNewComment);
     	return "succes";
     }
+
+	public String likeComment(Comment comment){
+		System.out.println("plus un like !!!");
+		comment.addLike();
+		commentDao.update(comment);
+		return "success";
+	}
 }

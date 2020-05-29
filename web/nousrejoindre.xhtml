@@ -1,0 +1,77 @@
+<html xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <!-- Qubio CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Qubio</title>
+  </head>
+  <body>
+    <h1>
+    <img src="img/sprites/ui/buttons/button5.png"/>
+    </h1>
+    <hr class="hr_title"/>
+    <div class="nav_qubio">
+        <nav class="navbar navbar-expand-lg nav_qubio">
+          <div class="collapse navbar-collapse nav_qubio" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <h:link class="nav-link" value = "Qubio" outcome = "index.xhtml" />
+              </li>
+              <li class="nav-item">
+                  <h:link class="nav-link" value = "Commentaires" outcome = "visitorBook.xhtml" />
+              </li>
+              <li class="nav-item">
+                  <h:link class="nav-link" value = "Nous rejoindre" outcome = "nousrejoindre.xhtml" />
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    <hr class="hr_title"/>
+    <div class="div_demo">
+        <img src="img/demo_left.png" class="div_demo_left"/><img src="img/demo.png"/><img src="img/demo_right.png" class="div_demo_right"/>
+    </div>
+    <hr/>
+    <div class="d-flex justify-content-center">
+        <!-- Default form subscription -->
+        <h:form class="text-center border border-light p-5 sub" action="#!">
+
+            <p class="h4 mb-4">Inscription</p>
+
+            <p>Rejoins notre mailling-list pour être mis au courant de notre actualité !</p>
+
+            <p>Pseudo</p>
+            <h:inputText id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Nom"
+                         value="#{registerUserBean.name}"
+                         required="true"
+                         requiredMessage="Un joli nom est nécessaire pour pouvoir s'inscrire. 😉"
+            />
+
+            <p>Adresse email</p>
+            <h:inputText id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail" type="email"
+                         value="#{registerUserBean.email}"
+                         required="true"
+                         requiredMessage="Une adresse mail est nécessaire pour que l'on puisse te contacter. 😀"
+                         minimum="5"
+                         validatorMessage="Encore un effort! Au moins 5 caractères! 🙃"
+            />
+
+            <h:messages styleClass="errorBlock" />
+
+            <h:commandButton value="S'inscrire" action="#{registerUserBean.submitAction}" />
+
+        </h:form>
+        <!-- Default form subscription -->
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"/>
+  </body>
+</html>

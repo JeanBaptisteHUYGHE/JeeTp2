@@ -1,24 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
+<html xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:view>
       <head>
-         <title>Connexion</title>
+          <!-- Required meta tags -->
+          <meta charset="utf-8"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+          <!-- Bootstrap CSS -->
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+         <!-- Qubio CSS -->
+         <link rel="stylesheet" type="text/css" href="style.css"/>
+         <title>Qubio</title>
       </head>
       <body>
-         <h:form>
-            Login:
-            <h:inputText id="login" value="#{loginBean.login}" />
-            <br/>
-            Password:
-            <h:inputText id="password" value="#{loginBean.password}" />
-            <br/>
-            <h:commandButton action="#{loginBean.returnAction}" value="Connect" />
-         </h:form>
+      <h1>
+         <img src="img/sprites/ui/buttons/button5.png" alt=""> </img>
+      </h1>
+      <hr class="hr_title"/>
+      <div class="nav_qubio">
+         <nav class="navbar navbar-expand-lg nav_qubio">
+            <div class="collapse navbar-collapse nav_qubio" id="navbarSupportedContent">
+               <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                      <h:link class="nav-link" value = "Qubio" outcome = "index.xhtml" />
+                  </li>
+                  <li class="nav-item">
+                      <h:link class="nav-link" value = "Commentaires" outcome = "visitorBook.xhtml" />
+                  </li>
+                  <li class="nav-item">
+                      <h:link class="nav-link" value = "Nous rejoindre" outcome = "nousrejoindre.xhtml" />
+                  </li>
+               </ul>
+            </div>
+         </nav>
+      </div>
+   <hr class="hr_title"/>
+      <div class="div_demo">
+         <img src="img/demo_left.png" class="div_demo_left" alt=""></img><img src="img/demo.png" alt=""></img><img src="img/demo_right.png" class="div_demo_right" alt=""></img>
+      </div>
+   <hr/>
+      <div class="description">
+        <span>
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget nulla nec ex porta fermentum. Vestibulum quis augue augue. Cras at blandit ligula. Integer efficitur cursus malesuada. Aliquam iaculis gravida magna, id maximus metus efficitur et. Nunc id sollicitudin libero. In malesuada lacinia risus, id porttitor mi congue sit amet. Nullam a congue nisi, et sollicitudin nibh. Praesent sodales porttitor congue.
+
+         Etiam at hendrerit mi, quis iaculis orci. Mauris quis nulla vel leo vulputate posuere. Proin vestibulum nibh commodo lectus semper laoreet. In fermentum leo ante, sed interdum felis hendrerit a. Quisque non sodales libero. Curabitur non sem a diam aliquet placerat vel et massa. Sed sed accumsan lacus, ultrices vulputate libero. Nunc in ultricies magna, ac tincidunt massa. Aenean accumsan consectetur efficitur. Integer dignissim ligula nec elit mollis, non consequat lorem commodo. Mauris eget tempor est. Cras at tincidunt sapien. Nam et justo nisl.
+        </span>
+      </div>
+   <hr/>
+      <div class="equipe">
+         <img src="img/equipe/bleu.png" alt=""/> <span>Ahlam - Servelette</span><br/>
+         <img src="img/equipe/vert.png" alt=""/> <span>Florian - Serveleur</span><br/>
+         <img src="img/equipe/jaune.png" alt=""/> <span>Jibé - Chivers</span><br/>
+         <img src="img/equipe/orange.png" alt=""/> <span>Théo - Physicioneur</span><br/>
+         <img src="img/equipe/rouge.png" alt=""/> <span>Oscar - Graphiteur</span><br/>
+      </div>
+   <hr/>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" type=""></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" type=""></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" type=""></script>
       </body>
-   </f:view>
+    </f:view>
 </html>
